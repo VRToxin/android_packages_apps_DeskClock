@@ -30,7 +30,7 @@
         android:textStyle="bold"
         android:textSize="14sp"
         android:textColor="@color/clock_white" />
-    <CheckBox
+    <Switch
         android:id="@+id/city_onoff"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"

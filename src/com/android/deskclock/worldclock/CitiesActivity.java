@@ -37,7 +37,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
+import android.widget.Switch;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Filter;
@@ -362,7 +362,7 @@ public class CitiesActivity extends BaseActivity implements OnCheckedChangeListe
                     holder.index = (TextView) view.findViewById(R.id.index);
                     holder.name = (TextView) view.findViewById(R.id.city_name);
                     holder.time = (TextView) view.findViewById(R.id.city_time);
-                    holder.selected = (CheckBox) view.findViewById(R.id.city_onoff);
+                    holder.selected = (Switch) view.findViewById(R.id.city_onoff);
                     view.setTag(holder);
                 }
                 view.setOnClickListener(CitiesActivity.this);
@@ -413,7 +413,7 @@ public class CitiesActivity extends BaseActivity implements OnCheckedChangeListe
             TextView index;
             TextView name;
             TextView time;
-            CheckBox selected;
+            Switch selected;
         }
 
         public void set24HoursMode(Context c) {

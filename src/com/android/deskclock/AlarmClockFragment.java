@@ -58,7 +58,7 @@ import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-import android.widget.CheckBox;
+import android.widget.Switch;
 import android.widget.CompoundButton;
 import android.widget.CursorAdapter;
 import android.widget.FrameLayout;
@@ -569,10 +569,10 @@ public abstract class AlarmClockFragment extends DeskClockFragment implements
             View expandArea;
             View summary;
             TextView clickableLabel;
-            CheckBox repeat;
+            Switch repeat;
             LinearLayout repeatDays;
             CompoundButton[] dayButtons = new CompoundButton[7];
-            CheckBox vibrate;
+            Switch vibrate;
             TextView ringtone;
             View hairLine;
             View arrow;
@@ -697,7 +697,7 @@ public abstract class AlarmClockFragment extends DeskClockFragment implements
             holder.expandArea = view.findViewById(R.id.expand_area);
             holder.hairLine = view.findViewById(R.id.hairline);
             holder.arrow = view.findViewById(R.id.arrow);
-            holder.repeat = (CheckBox) view.findViewById(R.id.repeat_onoff);
+            holder.repeat = (Switch) view.findViewById(R.id.repeat_onoff);
             holder.clickableLabel = (TextView) view.findViewById(R.id.edit_label);
             holder.repeatDays = (LinearLayout) view.findViewById(R.id.repeat_days);
             holder.collapseExpandArea = view.findViewById(R.id.collapse_expand);
@@ -712,7 +712,7 @@ public abstract class AlarmClockFragment extends DeskClockFragment implements
                 holder.repeatDays.addView(dayButton);
                 holder.dayButtons[i] = dayButton;
             }
-            holder.vibrate = (CheckBox) view.findViewById(R.id.vibrate_onoff);
+            holder.vibrate = (Switch) view.findViewById(R.id.vibrate_onoff);
             holder.ringtone = (TextView) view.findViewById(R.id.choose_ringtone);
 
             view.setTag(holder);
@@ -935,7 +935,7 @@ public abstract class AlarmClockFragment extends DeskClockFragment implements
                     final Calendar now = Calendar.getInstance();
                     final Calendar oldNextAlarmTime = alarm.getNextAlarmTime(now);
 
-                    final boolean checked = ((CheckBox) view).isChecked();
+                    final boolean checked = ((Switch) view).isChecked();
                     if (checked) {
                         // Show days
                         itemHolder.repeatDays.setVisibility(View.VISIBLE);
@@ -1031,7 +1031,7 @@ public abstract class AlarmClockFragment extends DeskClockFragment implements
             itemHolder.vibrate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    alarm.vibrate = ((CheckBox) v).isChecked();
+                    alarm.vibrate = ((Switch) v).isChecked();
                     asyncUpdateAlarm(alarm, false);
                 }
             });
